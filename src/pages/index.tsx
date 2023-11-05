@@ -1,11 +1,16 @@
-import { Link } from 'ice';
+import { useNavigation } from "react-router-dom";
 
 export default function HomePage() {
-  console.log('home page');
+  const navigation = useNavigation();
   return (
     <>
-      <h3>Home Page</h3>
-      <Link to='/test'>go to test</Link>
+      {navigation.state === "loading" ? (
+        <>Loading...</>
+      ) : (
+        <>
+          <h3>Hello World</h3>
+        </>
+      )}
     </>
   );
 }
